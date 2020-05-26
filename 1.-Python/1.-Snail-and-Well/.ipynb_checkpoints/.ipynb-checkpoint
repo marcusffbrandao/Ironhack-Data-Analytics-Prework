@@ -237,13 +237,6 @@
     "standard_deviation = np.std(displacement)\n",
     "print(\"The standard deviation of its displacement is %.1f cm.\" % standard_deviation)"
    ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": null,
-   "metadata": {},
-   "outputs": [],
-   "source": []
   }
  ],
  "metadata": {

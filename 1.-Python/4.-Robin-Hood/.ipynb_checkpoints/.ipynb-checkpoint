@@ -68,7 +68,7 @@
    ],
    "source": [
     "points_copy = points.copy()\n",
-    "no_duplicates = list(set(points))\n",
+    "no_duplicates = list(set(points_copy))\n",
     "duplicates = []\n",
     "\n",
     "for i in range(len(no_duplicates)):\n",
@@ -116,6 +116,7 @@
     "            q3 += 1\n",
     "        elif point[1] > 0:\n",
     "            q4 += 1\n",
+    "\n",
     "print(\"The arrows that have fallen in each quadrant are: Q1 = %d, Q2 = %d, Q3 = %d and Q4 = %d.\" % (q1, q2, q3, q4))"
    ]
   },
@@ -139,24 +140,26 @@
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "The points closest to the center are: [(0, 2), (0, -2)]. Their Euclidean distance to the center are: 2.0.\n"
+      "The points closest to the center are: [(0, 2), (0, -2)]. Their distance to the center are: 2.0.\n"
      ]
     }
    ],
    "source": [
     "point_distance = 0\n",
     "point_distance_dict = {}\n",
+    "point_distance_list = []\n",
     "point_closest = []\n",
     "\n",
     "for point in no_duplicates:\n",
     "    point_distance = ((point[0] - 0)**2 + (point[1] - 0)**2)**(1/2)\n",
     "    point_distance_dict[point] = point_distance\n",
-    "\n",
+    "    point_distance_list.append(point_distance)\n",
+    "        \n",
     "for point, point_distance in point_distance_dict.items():\n",
-    "    if point_distance == min(point_distance_dict.values()):\n",
+    "    if point_distance == min(point_distance_list):\n",
     "        point_closest.append(point)\n",
-    "    \n",
-    "print(\"The points closest to the center are: \" + str(point_closest) + \".\" + \" Their Euclidean distance to the center are: \" + str(min(point_distance_dict.values())) + \".\")"
+    "\n",
+    "print(\"The points closest to the center are: \" + str(point_closest) + \".\" + \" Their Euclidean distance to the center are: \" + str(min(point_distance_list)) + \".\")"
    ]
   },
   {
@@ -169,25 +172,10 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 5,
+   "execution_count": null,
    "metadata": {},
-   "outputs": [
-    {
-     "name": "stdout",
-     "output_type": "stream",
-     "text": [
-      "The number of arrows that won't hit the target is: 2.\n"
-     ]
-    }
-   ],
-   "source": [
-    "out_of_target = 0\n",
-    "\n",
-    "for point in point_distance_dict.values():\n",
-    "    if point > 9:\n",
-    "        out_of_target += 1\n",
-    "print(\"The number of arrows that won't hit the target is: \" + str(out_of_target) + \".\")"
-   ]
+   "outputs": [],
+   "source": []
   }
  ],
  "metadata": {

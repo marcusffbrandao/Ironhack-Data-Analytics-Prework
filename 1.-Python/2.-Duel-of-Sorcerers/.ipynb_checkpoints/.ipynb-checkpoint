@@ -317,7 +317,7 @@
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "The standard deviation of Gandalf is 15.1 and the standard deviation of Saruman is 15.6.\n"
+      "The standard deviation of the spell power of Gandalf is 15.1 and the standard deviation of the spell power of Saruman is 15.6.\n"
      ]
     }
    ],

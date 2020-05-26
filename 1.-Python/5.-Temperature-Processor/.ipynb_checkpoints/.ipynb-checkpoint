@@ -275,18 +275,25 @@
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "The hours when the temperature is greater than 70ºC are: [9, 10, 11, 12, 13, 14, 15].\n"
+      "['9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm']\n"
      ]
     }
    ],
    "source": [
-    "greater_than_70C_hours = []\n",
+    "greater_than_70C_list = []\n",
     "\n",
     "for hour in range(len(temperatures_C)):\n",
     "    if temperatures_C[hour] > 70:\n",
-    "        greater_than_70C_hours.append(hour) \n",
+    "        if hour == 0:\n",
+    "            greater_than_70C_list.append(str(hour + 12) + \"am\") \n",
+    "        elif hour < 12:\n",
+    "            greater_than_70C_list.append((str(hour) + \"am\"))\n",
+    "        elif hour == 12:\n",
+    "            greater_than_70C_list.append((str(hour) + \"pm\"))\n",
+    "        else:\n",
+    "            greater_than_70C_list.append((str(hour-12) + \"pm\"))\n",
     "\n",
-    "print(\"The hours when the temperature is greater than 70ºC are: \" + str(greater_than_70C_hours) + \".\")"
+    "print(greater_than_70C_list)"
    ]
   },
   {
@@ -298,25 +305,10 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 10,
+   "execution_count": null,
    "metadata": {},
-   "outputs": [
-    {
-     "name": "stdout",
-     "output_type": "stream",
-     "text": [
-      "The temperature is greater than 70ºC in more than 4 consecutive hours.\n"
-     ]
-    }
-   ],
-   "source": [
-    "consecutive_hours = 0\n",
-    "for i in range(len(greater_than_70C_hours)):\n",
-    "    if (greater_than_70C_hours[i] - greater_than_70C_hours[i - 1]):\n",
-    "        consecutive_hours += 1\n",
-    "if consecutive_hours > 4:\n",
-    "    print(\"The temperature is greater than 70ºC in more than 4 consecutive hours.\")"
-   ]
+   "outputs": [],
+   "source": []
   },
   {
    "cell_type": "markdown",
@@ -328,23 +320,10 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 11,
+   "execution_count": null,
    "metadata": {},
-   "outputs": [
-    {
-     "name": "stdout",
-     "output_type": "stream",
-     "text": [
-      "The cooling system needs to be replaced.\n"
-     ]
-    }
-   ],
-   "source": [
-    "if consecutive_hours > 4 or temperatures_over_80C > 0 or average_temperature > 65:\n",
-    "    print(\"The cooling system needs to be replaced.\")\n",
-    "else:\n",
-    "     print(\"The cooling system is working well and does not need to be replaced.\")"
-   ]
+   "outputs": [],
+   "source": []
   },
   {
    "cell_type": "markdown",
@@ -355,24 +334,10 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 12,
+   "execution_count": null,
    "metadata": {},
-   "outputs": [
-    {
-     "name": "stdout",
-     "output_type": "stream",
-     "text": [
-      "The average temperature of the day is 62.83 Celsius or 145.10 Farenheit. The average value of the temperatures in Farenheit is 2.31 times the average value in Celsius.\n"
-     ]
-    }
-   ],
-   "source": [
-    "import numpy as np\n",
-    "average_temperature_C = float(sum(temperatures_C)/len(temperatures_C))\n",
-    "average_temperature_F = float(sum(temperatures_F)/len(temperatures_F))\n",
-    "relation_avg = average_temperature_F / average_temperature_C\n",
-    "print(\"The average temperature of the day is %.2f Celsius or %.2f Farenheit. The average value of the temperatures in Farenheit is %.2f times the average value in Celsius.\" % (average_temperature_C, average_temperature_F, relation_avg))"
-   ]
+   "outputs": [],
+   "source": []
   },
   {
    "cell_type": "markdown",
@@ -383,24 +348,10 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 13,
+   "execution_count": null,
    "metadata": {},
-   "outputs": [
-    {
-     "name": "stdout",
-     "output_type": "stream",
-     "text": [
-      "The standard deviation of the temperatures of the day is 14.63 Celsius or 26.34 Farenheit. The standard deviation of the temperatures in Farenheit is 1.80 times the standard deviation in Celsius.\n"
-     ]
-    }
-   ],
-   "source": [
-    "import numpy as np\n",
-    "standard_deviation_C = np.std(temperatures_C)\n",
-    "standard_deviation_F = np.std(temperatures_F)\n",
-    "relation_std = standard_deviation_F / standard_deviation_C\n",
-    "print(\"The standard deviation of the temperatures of the day is %.2f Celsius or %.2f Farenheit. The standard deviation of the temperatures in Farenheit is %.2f times the standard deviation in Celsius.\" % (standard_deviation_C, standard_deviation_F, relation_std))"
-   ]
+   "outputs": [],
+   "source": []
   }
  ],
  "metadata": {
